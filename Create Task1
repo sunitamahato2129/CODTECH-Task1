@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section>
+        <div class="userForm" >
+    <form action="">
+    <input type="text" placeholder="Name"> 
+    <input type="text" placeholder="Salary">
+    <input type="text" placeholder="Company">
+    
+    <button onclick="formHandle()" onmouseover="x()" onmouseout="y()">Submit</button>
+    </form>
+    </div>
+    <div class="userDetails">
+        <table border="1">
+            <tr>
+                <td>Name</td>
+                <td>Salary</td>
+                <td>Company</td>
+                <td>Action</td>
+            </tr>
+        </table>
+    </div>
+        <script src="./script.js"></script>
+</body>
+</html>
+
+
+
+  /*Css
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    height: 100vh;
+    width: 100%;
+    /* background: radial-gradient(red,yellow, black); */
+    background: linear-gradient(135deg,#e60548 ,#4e085f);
+}
+
+section>.userForm{
+    height: 30%;
+    width: 100%;
+    /* background-color: blue; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+section>.userForm>form{
+    color: white;
+}
+
+section>.userForm>form>input{
+    height: 30px;
+    width:200px ;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    margin-left: 25px;
+    color: rgb(241, 7, 132);
+}
+
+section>.userForm>form>input:focus{
+    color:white ;
+}
+
+
+section>.userForm>form>button{
+    height: 35px;
+    width: 120px;
+    background-color: rgb(0,0,0);
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    margin-left: 20px;
+}
+
+
+section>.userForm>form>button:hover{
+    box-shadow: 0px 0px 10px white;
+    cursor: pointer;
+}
+
+section>.userDetails{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+section>.userDetails>table{
+    width: 70%;
+    border: 1px solid white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+section>.userDetails>table td{
+    padding: 10px;
+}
+
+
+/*Script
+let inputs = document.querySelectorAll("input");
+let button = document.querySelector("button");
+let table = document.querySelector("table");
+let row;
+
+function formHandle() {
+  event.preventDefault();
+  let name = inputs[0].value;
+  let salary = inputs[1].value;
+  let company = inputs[2].value;
+
+  
+  let tr = document.createElement("tr");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  let td3 = document.createElement("td");
+  let td4 = document.createElement("td");
+  let update = document.createElement("button");
+  let deletee = document.createElement("button");
+
+ if (button.innerText == "Submit") {
+    update.innerText = "Update";
+    deletee.innerText = "Delete";
+
+    td1.innerText = name;
+    td2.innerText = salary;
+    td3.innerText = company;
+    td4.appendChild(update);
+    td4.appendChild(deletee);
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+
+    table.appendChild(tr);
+
+    update.addEventListener("click", () => {
+      inputs[0].value = name;
+      inputs[1].value = salary;
+      inputs[2].value = company;
+
+      button.innerText = "Update";
+      row = tr;
+    });
+
+
+    button.addEventListener("click", () => {
+        if (btn.innerText == "Update") {
+          btn.innerText = "Submit";
+        }
+      });
+
+
+
+    deletee.addEventListener("click", () => {
+      tr.remove();
+    });
+
+    inputs[0].value = "";
+    inputs[1].value = "";
+    inputs[2].value = "";
+  } else if (button.innerText == "Update") {
+    row.cells[0].innerText = name;
+    row.cells[1].innerText = salary;
+    row.cells[2].innerText = company;
+
+    inputs[0].value = "";
+    inputs[1].value = "";
+    inputs[2].value = "";
+  }
+}
+function x() {
+  let name = inputs[0].value;
+  let salary = inputs[1].value;
+  let company = inputs[2].value;
+
+  if (name == "" || salary == "" || company == "") {
+    button.style.cursor = "not-allowed";
+    button.style.backgroundColor = "red";
+    button.disabled = true
+
+
+    // button.style.display="none"
+  } else {
+    button.style.cursor = "pointer";
+    button.style.backgroundColor = "green";
+    button.disabled = false
+  }
+}
+
+function y() {
+  button.style.backgroundColor = "black";
+  // button.style.display="inline"
+}
+
+// if(name==""|| salary==""|| company==""){
+//     alert("input fields are empty")
+// }
